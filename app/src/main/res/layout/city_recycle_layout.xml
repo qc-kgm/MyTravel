@@ -1,52 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="4dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imagecity"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardviewcity"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:srcCompat="@drawable/hinhnen"
-        android:scaleType="centerCrop"
-        android:padding="2dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:clickable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imagecity"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
 
-    />
-    <TextView
-        android:id="@+id/namecity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_below="@+id/imagecity"
-        android:text="Ha Noi"
-        android:textColor="@color/black"
-        android:layout_alignParentLeft="true"
-        android:paddingLeft="8dp"
-        android:textAppearance="@style/MaterialAlertDialog.MaterialComponents.Title.Panel.CenterStacked"
-        android:textFontWeight="500"
-        />
+                />
+<!--            <ImageView-->
+<!--                android:id="@+id/imagecity"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:padding="2dp"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                />-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <TextView
+                android:id="@+id/namecity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imagecity"
+                android:layout_alignParentLeft="true"
+                android:background="#F6D0DC"
+                android:paddingLeft="8dp"
+                android:text="Vi du"
+                android:textAppearance="@style/MaterialAlertDialog.MaterialComponents.Title.Panel.CenterStacked"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="20sp" />
 
 
-    </RelativeLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
