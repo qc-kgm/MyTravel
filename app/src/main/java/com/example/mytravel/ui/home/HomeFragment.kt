@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
@@ -23,6 +25,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private lateinit var adapterCity: AdapterCity
     private lateinit var layoutManager: LinearLayoutManager
+    var isVisibleAll=0
 
 //     var listCity: MutableList<City> = mutableListOf()
 //    val urls:String=getString(R.string.ip)+"/travelapp/services/getlistcity.php"
@@ -71,6 +74,28 @@ class HomeFragment : Fragment() {
         val urltop=getString(R.string.ip)+"/travelapp/services/gettopcity.php?q=3"
         getData(urls)
         getTopData(urltop)
+        recycleviewcity.visibility=View.GONE
+        text2.setOnClickListener {
+            println("TEXT VIEW CAN CLICK ")
+            if (isVisibleAll==1) {
+                isVisibleAll=0
+                recycleviewcity.visibility=View.GONE
+                text2.setPadding(10,6,0,150)
+//                (text2.layoutParams as LinearLayout.LayoutParams).apply {
+//                    marginStart=8
+//                    topMargin=8.dpToPixels()
+//                    marginEnd=8.dpToPixels()
+//                    bottomMargin=8.dpToPixels()
+//                }
+            }
+            else
+            {
+                isVisibleAll=1
+                recycleviewcity.visibility=View.VISIBLE
+                text2.setPadding(10,6,0,10)
+//                val para= text2.layoutParams as ViewGroup.MarginLayoutParams
+            }
+        }
 //
 //
 //
