@@ -2,26 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
-
     <EditText
         android:id="@+id/textfind"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="4dp"
         android:hint="  What's your destination?"
         android:textColor="#4CD152"
         android:textColorHint="#4CD152"
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Top Destination"
+        android:textSize="20sp"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="4dp"
+        android:textStyle="bold"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleviewtopcity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:layout_marginBottom="8dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Worlwide Destination"
+        android:textSize="20sp"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="4dp"
+        android:textStyle="bold"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleviewcity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
-        />
+        android:layout_marginBottom="50dp"/>
 
 
 </LinearLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="6dp"
+    tools:context=".ui.home.CityDetail" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/imagedetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <LinearLayout
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+            <TextView
+                android:id="@+id/namecity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="20sp"
+                android:text="Hà Nội "
+                android:layout_weight="1"
+                />
+
+                <ImageButton
+                    android:id="@+id/button_wish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#64BFE8"
+                    android:src="@drawable/heart"
+                    android:layout_marginRight="8dp"/>
+            </LinearLayout>
+            <Button
+                android:id="@+id/activities"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/purple_200"
+                android:text="All activities"
+                android:layout_marginHorizontal="0dp"
+                android:textAlignment="textStart"
+
+                app:icon="@drawable/ic_home_black_24dp" />
+            <Button
+                android:id="@+id/sights"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/purple_200"
+                android:text="Sights"
+                android:textAlignment="textStart"
+                android:layout_marginHorizontal="0dp"
+
+                app:icon="@drawable/ic_home_black_24dp" />
+            <Button
+                android:id="@+id/weather"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/purple_200"
+                android:text="Weather"
+                android:textAlignment="textStart"
+
+                app:icon="@drawable/ic_home_black_24dp" />
+
+
+            <TextView
+                android:id="@+id/overviewdetail"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="ahjhdsfjh fhjksdhf khskdjfh hs"
+                />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Đánh giá"
+                android:textSize="20sp"
+                android:textColor="@android:color/holo_red_light"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1"
+                />
+            <LinearLayout
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <EditText
+                    android:id="@+id/textcomment"
+                    android:inputType="text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:hint="Your review"
+                    android:layout_weight="1"
+                    />
+
+                <ImageButton
+                    android:id="@+id/tocomment"
+                    android:layout_width="43dp"
+                    android:layout_height="match_parent"
+                    android:background="#FDFEFF"
+                    android:src="@drawable/ic_sent" />
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>

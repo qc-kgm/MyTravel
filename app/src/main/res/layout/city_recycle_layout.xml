@@ -41,6 +41,7 @@
                 android:layout_below="@+id/imagecity"
                 android:layout_alignParentLeft="true"
                 android:background="#F6D0DC"
+
                 android:paddingLeft="8dp"
                 android:text="Vi du"
                 android:textAppearance="@style/MaterialAlertDialog.MaterialComponents.Title.Panel.CenterStacked"
@@ -48,7 +49,14 @@
                 android:textFontWeight="500"
                 android:textSize="20sp" />
 
-
+<!--            <ImageView-->
+<!--                android:id="@+id/isWish"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="27dp"-->
+<!--                android:layout_alignTop="@+id/namecity"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:background="#64BFE8"-->
+<!--                android:src="@drawable/heart" />-->
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

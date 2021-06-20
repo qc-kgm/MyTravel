@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="4dp"
+
+
+
+        >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:id="@+id/backgr"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/backgroundweather"/>
+        <ImageView
+            android:id="@+id/state"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hinhnen"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            />
+
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/state"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/state"
+            android:text="25"
+            android:drawableRight="@drawable/degree"
+            android:textAlignment="center"
+            android:textColor="#1ED7F8"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16/2/2021"
+            android:textColor="#FFE84D"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="20sp"
+            android:layout_below="@+id/namestate"
+            android:layout_marginTop="-4dp"
+            android:layout_alignLeft="@+id/namestate"
+            />
+
+        <TextView
+            android:id="@+id/namestate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/state"
+            android:layout_alignLeft="@+id/state"
+            android:layout_marginTop="4dp"
+            android:textColor="#00FFE8"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="30sp"
+            android:text="SUNNY"
+            />
+        <TextView
+            android:id="@+id/rangetemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/temp"
+            android:layout_toRightOf="@+id/temp"
+            android:layout_marginLeft="-150dp"
+            android:textSize="26dp"
+            android:textColor="#FFE84D"
+            android:text="16\u00B0C / 30\u00B0C"
+            />
+        <TextView
+            android:id="@+id/wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 6.5 km/h"
+            android:layout_alignBottom="@+id/namestate"
+            android:textSize="20dp"
+            android:textColor="#00FFE8"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:layout_alignLeft="@+id/temp"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginBottom="-16dp"
+            android:drawableLeft="@drawable/wind"
+
+
+            />
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 60 %"
+
+            android:layout_alignBottom="@+id/wind"
+            android:textSize="20dp"
+            android:textColor="#00FFE8"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:layout_toRightOf="@+id/wind"
+            android:layout_marginLeft="16dp"
+            android:drawableLeft="@drawable/humidity"
+            />
+    </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

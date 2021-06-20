@@ -12,5 +12,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Profile</string>
+    <string name="ip" >http://192.168.1.5</string>
+    <string name="username">Username</string>
 </resources>
