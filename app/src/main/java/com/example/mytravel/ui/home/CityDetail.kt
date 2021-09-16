@@ -1,6 +1,8 @@
 package com.example.mytravel.ui.home
 
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +14,7 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.mytravel.R
+import com.example.mytravel.model.City
 import com.example.mytravel.model.User
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_city_detail.*
@@ -40,7 +43,7 @@ class CityDetail : AppCompatActivity() {
         setContentView(R.layout.activity_city_detail)
         layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         urls=getString(R.string.ip)+"/travelapp/services/getimagecity.php"
-        if(intent !=null) {
+        if(intent.getBundleExtra("bundle") !=null) {
 //            val id = intent.getBundleExtra("bundle")!!.getInt("ID")
             val bundle=intent.getBundleExtra("bundle")
             id=bundle!!.getInt("keyID")
@@ -49,45 +52,70 @@ class CityDetail : AppCompatActivity() {
             namecity.text=name
             overviewdetail.text=overview
 //            textView2.text = id.toString()
-            urls+="?q=$id"
+            urls=urls+"?q=$id"+"&c=1"
             getdata(urls,id)
             isWish()
             getComment()
-            weather.setOnClickListener {
-                val intent2= Intent(this, Weather::class.java)
-                intent2.putExtra("city",namecity.text)
-                this.startActivity(intent2)
+        } else {
+            val i=intent.getIntExtra("id",1)
+            getcity(getString(R.string.ip)+"/travelapp/services/getcity.php?q=$i")
+        }
+        weather.setOnClickListener {
+            val intent2= Intent(this, Weather::class.java)
+            intent2.putExtra("city",namecity.text)
+            this.startActivity(intent2)
+        }
+        button_wish.setOnClickListener{
+            if (wish==0){
+                wish=1
+                Picasso.get()
+                    .load(R.drawable.heart_like)
+                    .into(button_wish)
+                addWish()
             }
-            button_wish.setOnClickListener{
-                if (wish==0){
-                    wish=1
-                    Picasso.get()
-                        .load(R.drawable.heart_like)
-                        .into(button_wish)
-                    addWish()
-                }
-                else {
-                    wish=0
-                    Picasso.get()
-                        .load(R.drawable.heart)
-                        .into(button_wish)
-                    rmWish()
-                }
+            else {
+                wish=0
+                Picasso.get()
+                    .load(R.drawable.heart)
+                    .into(button_wish)
+                rmWish()
             }
-            tocomment.setOnClickListener {
-                val nd=textcomment.text.toString().trim()
-                if(nd.isEmpty()) {
-                    println("nothing to comment")
-                }
-                else {
-                    pushComment()
-                    textcomment.text.clear()
+        }
+        tocomment.setOnClickListener {
+            val nd=textcomment.text.toString().trim()
+            if(nd.isEmpty()) {
+                println("nothing to comment")
+            }
+            else {
+                pushComment()
+                textcomment.text.clear()
 //                    getComment()
-                }
             }
-
-
-
+        }
+        activities.setOnClickListener {
+//            startActivity(Intent(this,MapsActivity::class.java))
+            val intent=Intent(this, HoatDong::class.java)
+            intent.putExtra("idcity",id)
+            startActivity(intent)
+        }
+        sights.setOnClickListener {
+            val intent2=Intent(this, Sights::class.java)
+            intent2.putExtra("idcity",id)
+            startActivity(intent2)
+        }
+        restaurent.setOnClickListener {
+//            val intent=Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/search/?api=1&query=pizza+seattle+wa"))
+            val intent=Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?z=5&q=restaurents+$name"))
+            intent.setPackage("com.google.android.apps.maps")
+//            (intent.resolveActivity(packageManager)).let {
+                startActivity(intent)
+//            }
+        }
+        hotel.setOnClickListener {
+            val intent=Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?z=5&q=hotel+$name"))
+            intent.setPackage("com.google.android.apps.maps")
+//            (intent.resolveActivity(packageManager)).let {
+            startActivity(intent)
         }
     }
     fun getdata(urls:String,ids:Int){
@@ -312,4 +340,39 @@ class CityDetail : AppCompatActivity() {
         requestq.add(stringRequest)
     }
 
+    fun getcity(url: String) {
+        var city= City(0,"","","")
+        var requestq=Volley.newRequestQueue(this)
+        val jsonArrayRequest=JsonArrayRequest(
+            Request.Method.GET,url,null, { response ->
+                print("duoc roi")
+                run {
+                    try {
+                        val objects = response.getJSONObject(0)
+                        city= City(
+                            objects.getInt("id"),
+                            objects.getString("city"),
+                            objects.getString("image"),
+                            objects.getString("overview")
+                        )
+                    } catch (error: JSONException) {
+                        Log.e("error", "loi get data")
+                    }
+                }
+                id=city.id
+                name=city.name
+                overview=city.overview
+                namecity.text=name
+                overviewdetail.text=overview
+//            textView2.text = id.toString()
+                urls=urls+"?q=$id"+"&c=1"
+                getdata(urls,id)
+                isWish()
+                getComment()
+            },
+            { error ->
+                error.printStackTrace()
+            })
+        requestq.add(jsonArrayRequest)
+    }
 }

@@ -11,8 +11,9 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard">Wishlist</string>
     <string name="title_notifications">Profile</string>
-    <string name="ip" >http://192.168.1.5</string>
+    <string name="ip">http://192.168.1.3</string>
     <string name="username">Username</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

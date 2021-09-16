@@ -1,13 +1,12 @@
 package com.example.mytravel.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
@@ -25,6 +24,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private lateinit var adapterCity: AdapterCity
     private lateinit var layoutManager: LinearLayoutManager
+    lateinit var listcity:MutableList<City>
     var isVisibleAll=0
 
 //     var listCity: MutableList<City> = mutableListOf()
@@ -46,6 +46,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         layoutManager=LinearLayoutManager(activity)
+        listcity= mutableListOf()
 
 //        getData(urls)
 ////
@@ -96,6 +97,28 @@ class HomeFragment : Fragment() {
 //                val para= text2.layoutParams as ViewGroup.MarginLayoutParams
             }
         }
+//        search_bar.setOnClickListener {
+//            val intent= Intent(activity,MapsActivity::class.java)
+//            startActivity(intent)
+//        }
+//
+//        <EditText
+//        android:id="@+id/search_bar"
+//        android:inputType="text"
+//        android:layout_width="match_parent"
+//        android:layout_height="wrap_content"
+//        android:hint="  What's your destination?"
+//        android:textColor="#E2D23C"
+//        android:textColorHint="#E2D23C"
+//        android:drawableLeft="@drawable/ic_magnifying_glass"
+//        />
+//
+//
+        search_button.setOnClickListener {
+            startActivity(Intent(activity,SearchableActivity::class.java))
+        }
+
+
 //
 //
 //
@@ -178,6 +201,7 @@ class HomeFragment : Fragment() {
 
                 }
                 listCity.let {
+                    listcity.addAll(it)
                     showtopcity(it)
                 }
             },

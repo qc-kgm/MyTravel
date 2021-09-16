@@ -7,10 +7,8 @@ import android.widget.EditText
 import android.widget.Toast
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
-import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.mytravel.model.User
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class Signup : AppCompatActivity() {
@@ -18,8 +16,8 @@ class Signup : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
         signup.setOnClickListener {
-            if (validateFullname(fullname) && validateusername(username) && validateemail(email) && validatepassword(pw) && validaterepeatpw(pw,repw) ){
-                signupaccount(username.text.toString().trim(),fullname.text.toString().trim(),pw.text.toString().trim(),email.text.toString().trim())
+            if (validateFullname(fullname) && validateusername(username) && validateemail(email) && validatepassword(newpassword) && validaterepeatpw(newpassword,renewpassword) ){
+                signupaccount(username.text.toString().trim(),fullname.text.toString().trim(),newpassword.text.toString().trim(),email.text.toString().trim())
             }
         }
     }
@@ -141,8 +139,8 @@ class Signup : AppCompatActivity() {
     private fun gotosignin(){
         username.text.clear()
         fullname.text.clear()
-        pw.text.clear()
-        repw.text.clear()
+        newpassword.text.clear()
+        renewpassword.text.clear()
         email.text.clear()
         val intent=Intent(this@Signup,Login::class.java)
         startActivity(intent)

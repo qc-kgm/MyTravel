@@ -1,5 +1,6 @@
 package com.example.mytravel.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.mytravel.Login
 import com.example.mytravel.databinding.FragmentProfileBinding
 import com.example.mytravel.model.User
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -44,11 +46,19 @@ class ProfileFragment : Fragment() {
         fullname.text= User.fullname
         username.text=User.username
         email.text=User.email
-        password.text=User.password
+//        password.text=User.password
+        edit.setOnClickListener {
+            startActivity(Intent(activity,EditProfile::class.java))
+        }
+        logout.setOnClickListener {
+            startActivity(Intent(activity,Login::class.java))
+            activity?.finish()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }
