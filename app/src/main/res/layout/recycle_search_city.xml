@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="4dp"
+        android:layout_marginHorizontal="4dp"
+        >
+    <TextView
+        android:id="@+id/ten_city"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="6dp"
+        android:gravity="center_vertical"
+        android:drawableStart="@drawable/ic_placeholder"
+        android:text="vi du ket qua"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+        />
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

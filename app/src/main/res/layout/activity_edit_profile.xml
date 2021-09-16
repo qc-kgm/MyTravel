@@ -4,68 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.profile.EditProfile">
 
     <ImageView
-        android:id="@+id/background"
+        android:id="@+id/edit_background"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@color/purple_500"
-    />
+        />
 
     <ImageView
-        android:id="@+id/avatar"
+        android:id="@+id/edit_avatar"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_alignBottom="@+id/background"
+        android:layout_alignBottom="@+id/edit_background"
         android:layout_marginBottom="-60dp"
         android:layout_marginStart="40dp"
         android:src="@drawable/ava"/>
 
     <Button
-        android:id="@+id/edit"
+        android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Profile"
-
-
+        android:text="Save"
         android:backgroundTint="@android:color/white"
-
         style="@style/MyButtonStyle"
         android:textColor="@color/purple_500"
-        android:layout_above="@+id/info"
-        android:layout_marginBottom="-60dp"
+        android:layout_below="@+id/info"
+        android:layout_marginTop="60dp"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="30dp"
+        android:textSize="10sp" />
+    <Button
+        android:id="@+id/changePW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change password "
+        android:layout_alignTop="@+id/save"
+        android:layout_toStartOf="@+id/save"
+        android:backgroundTint="@android:color/white"
+        style="@style/MyButtonStyle"
+        android:textColor="@color/purple_500"
+        android:layout_marginEnd="30dp"
         android:textSize="10sp" />
     <LinearLayout
         android:id="@+id/info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/avatar"
+        android:layout_below="@+id/edit_avatar"
         android:layout_marginTop="60dp"
         android:gravity="center"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="30dp"
+            android:paddingLeft="20dp"
             android:layout_marginTop="30dp"
 
             android:orientation="horizontal">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_name"/>
-
             <TextView
-                android:id="@+id/fullname"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Full name"
+                android:textSize="20sp"
+                android:gravity="center_vertical"
+                android:ems="5"
+                />
+            <EditText
+                android:id="@+id/edit_fullname"
+                android:inputType="textPersonName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
                 android:fontFamily="sans-serif-condensed-light"
-                android:textSize="24dp"
+                android:textSize="20dp"
                 android:paddingHorizontal="12dp"
                 android:text="Tran Quoc Chung"
 
@@ -79,21 +92,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:paddingLeft="30dp">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_username"/>
+            android:paddingLeft="20dp">
             <TextView
-                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="User name"
+                android:textSize="20sp"
+                android:gravity="center_vertical"
+                android:ems="5"
+                />
+            <EditText
+                android:id="@+id/edit_username"
                 android:paddingHorizontal="12dp"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed-light"
-                android:textSize="24dp"
+                android:textSize="20sp"
                 android:layout_marginLeft="20dp"
+                android:inputType="textPersonName"
                 android:text="quocchung-kgm"/>
         </LinearLayout>
 
@@ -101,63 +119,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:paddingLeft="30dp">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_email"/>
+            android:paddingLeft="20dp">
             <TextView
-                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Email"
+                android:textSize="20sp"
+                android:gravity="center_vertical"
+                android:ems="5"
+                />
+            <EditText
+                android:id="@+id/edit_email"
                 android:paddingHorizontal="12dp"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed-light"
-                android:textSize="24dp"
+                android:textSize="20dp"
                 android:layout_marginLeft="20dp"
                 android:text="hihi12@gmail.com"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:paddingLeft="30dp">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_password"/>
 
-            <TextView
-                android:id="@+id/password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="sans-serif-condensed-light"
-                android:inputType="textPassword"
-                android:paddingHorizontal="12dp"
-                android:text="NoPassword"
-                android:textSize="24dp"
-                android:textStyle="bold" />
-        </LinearLayout>
+
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log out"
-
-
-        android:backgroundTint="@android:color/white"
-
-        style="@style/MyButtonStyle"
-        android:textColor="@color/purple_500"
-        android:layout_below="@+id/info"
-        android:layout_marginBottom="-60dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="20dp"
-        android:textSize="10sp" />
 </RelativeLayout>

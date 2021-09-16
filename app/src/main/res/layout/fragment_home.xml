@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginHorizontal="4dp"
     tools:context=".ui.home.HomeFragment">
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -14,15 +15,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-    <EditText
-        android:id="@+id/textfind"
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="  What's your destination?"
-        android:textColor="#4CD152"
-        android:textColorHint="#4CD152"
-        />
+
+        <Button
+            android:id="@id/search_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/MyButtonStyle"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/purple_500"
+            android:text="SEARCH FOR DESTINATIONS"
+            android:drawableLeft="@drawable/ic_magnifying_glass"
+
+
+            />
 
     <TextView
         android:layout_width="match_parent"
